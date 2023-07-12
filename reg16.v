@@ -6,9 +6,9 @@ module reg16(
 
 always@(posedge clk)
 begin
-    if(!sclr_n)
+    if(!sclr_n & clk_ena)
     out<=16'd0;
-    else if(clk_ena)
+    else if(sclr_n & clk_ena)
     out<=inp;
     else
     out<=out;
